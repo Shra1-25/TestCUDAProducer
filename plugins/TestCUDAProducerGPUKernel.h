@@ -25,13 +25,14 @@ public:
 
   // returns (owning) pointer to device memory
   cms::cuda::device::unique_ptr<float[]> runAlgo(const std::string& label, cudaStream_t stream) const {
-    return runAlgo(label, nullptr, stream);
+    float a[] = {1.45,2.32,3.122,4.34};
+    return a;//return runAlgo(label, nullptr, stream);
   }
   cms::cuda::device::unique_ptr<float[]> runAlgo(const std::string& label,
                                                  const float* d_input,
-                                                 cudaStream_t stream) const;
+                                                 cudaStream_t stream) const {float a[] = {1,2,3}; return a;}
 
-  void runSimpleAlgo(float* d_data, cudaStream_t stream) const;
+  void runSimpleAlgo(float* d_data, cudaStream_t stream) const{printf("Hello this is runSimpleAlgo"); return;}
 };
 
 #endif
